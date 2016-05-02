@@ -55,6 +55,16 @@ struct Ship {
         self.isWooden = true
         
     }
+    
+    init(length: Int, location: GridLocation, isVertical: Bool, hitTracker: HitTracker, isWooden: Bool) {
+        self.length = length
+        self.location = location
+        self.hitTracker = HitTracker()
+        self.isVertical = isVertical
+        self.isWooden = isWooden
+        
+    }
+    
 }
 
 // TODO: Change Cell protocol to PenaltyCell and add the desired properties
@@ -96,7 +106,7 @@ class ControlCenter {
     
     func placeItemsOnGrid(human: Human) {
         
-        let smallShip = Ship(length: 2, location: GridLocation(x: 3, y: 4), isVertical: true, hitTracker: HitTracker())
+        let smallShip = Ship(length: 2, location: GridLocation(x: 3, y: 4), isVertical: true, hitTracker: HitTracker(), isWooden: true)
         human.addShipToGrid(smallShip)
         
         let mediumShip1 = Ship(length: 3, location: GridLocation(x: 0, y: 0), isVertical: false, hitTracker: HitTracker())
@@ -111,18 +121,18 @@ class ControlCenter {
         let xLargeShip = Ship(length: 5, location: GridLocation(x: 7, y: 2), isVertical: true, hitTracker: HitTracker())
         human.addShipToGrid(xLargeShip)
         
-        let mine1 = Mine(location: GridLocation(x: 6, y: 0), guaranteesHit: false, penaltyText: "Now you're in trouble. CP gets an additional turn.")
+        let mine1 = Mine(location: GridLocation(x: 6, y: 0), guaranteesHit: false, penaltyText: "Lucky for you the scallywag has turned and fled. Time to juice up!")
         human.addMineToGrid(mine1)
         print(mine1.guaranteesHit)
         
-        let mine2 = Mine(location: GridLocation(x: 3, y: 3), penaltyText: "Now you're in trouble. CP gets additional turn")
+        let mine2 = Mine(location: GridLocation(x: 3, y: 3), penaltyText: "CP tripped... on your explosion. RIP")
         human.addMineToGrid(mine2)
         print(mine2.guaranteesHit)
         
-        let seamonster1 = SeaMonster(location: GridLocation(x: 5, y: 6), guaranteesHit: true, penaltyText: "You've landed in deep waters! CP gets a hit!")
+        let seamonster1 = SeaMonster(location: GridLocation(x: 5, y: 6), guaranteesHit: true, penaltyText: "CP solo'd baron nashor.")
         human.addSeamonsterToGrid(seamonster1)
 
-        let seamonster2 = SeaMonster(location: GridLocation(x: 2, y: 2), guaranteesHit: true, penaltyText: "You've landed in deep waters! CP gets a hit!")
+        let seamonster2 = SeaMonster(location: GridLocation(x: 2, y: 2), guaranteesHit: true, penaltyText: "CP wanted to feel big but the Sea Monster was bigger.")
         human.addSeamonsterToGrid(seamonster2)
         
     }
