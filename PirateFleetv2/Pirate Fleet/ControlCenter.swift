@@ -123,11 +123,9 @@ class ControlCenter {
         
         let mine1 = Mine(location: GridLocation(x: 6, y: 0), guaranteesHit: false, penaltyText: "Lucky for you the scallywag has turned and fled. Time to juice up!")
         human.addMineToGrid(mine1)
-        print(mine1.guaranteesHit)
         
         let mine2 = Mine(location: GridLocation(x: 3, y: 3), penaltyText: "CP tripped... on your explosion. RIP")
         human.addMineToGrid(mine2)
-        print(mine2.guaranteesHit)
         
         let seamonster1 = SeaMonster(location: GridLocation(x: 5, y: 6), guaranteesHit: true, penaltyText: "CP solo'd baron nashor.")
         human.addSeamonsterToGrid(seamonster1)

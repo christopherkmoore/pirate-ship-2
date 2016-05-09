@@ -174,8 +174,10 @@ extension PirateFleetViewController: PlayerDelegate {
              if let mine = penaltyCell as? Mine {
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
-
-                createAlertWithTitle("Ka-boom! ;;", message: mine.penaltyText, actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
+                
+                
+                
+                createAlertWithTitle(mine.penaltyText, message: "ARRRRG? OUCH!", actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
                     self.dismissPenaltyAlert(player)
                 })
             }
@@ -185,7 +187,7 @@ extension PirateFleetViewController: PlayerDelegate {
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMonster : Settings.Messages.ComputerHitMonster
                 
-                createAlertWithTitle("You hit a Seamonster! ;)", message: seamonster.penaltyText, actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
+                createAlertWithTitle(seamonster.penaltyText, message: "UHHH ARRRRGH@@@@@@RURURU", actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
                     self.dismissPenaltyAlert(player)
                 })
             }
